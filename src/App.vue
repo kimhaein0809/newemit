@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <web-banner
+    :banData="banData" @click="modalView=true"></web-banner>
+  <web-modal :mView="modalView" @mClose="modalView=false"></web-modal>
+ 
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import webBanner from "@/components/WebBanner.vue"
+import webModal from "@/components/WebModal.vue"
+import banData1 from "@/data/directs.js"
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  components:{
+    webBanner,
+    webModal
+  },
+  data(){
+    return {
+      banData:banData1,
+      modalView:false,
+    }
+  },
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style>
+@import url(./assets/style.css);
+
 </style>
