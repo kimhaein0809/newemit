@@ -1,4 +1,5 @@
 <template>
+  
   <web-banner
     :banData="banData" @click="modalView=true"></web-banner>
   <web-modal :mView="modalView" @mClose="modalView=false"></web-modal>
